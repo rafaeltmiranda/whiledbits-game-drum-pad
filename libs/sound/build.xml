@@ -4,7 +4,7 @@
 
     <!-- Initialize build properties  -->
     <target name="init" description="Initializes properties">
-        <property name="project.name" value="sound-library" />
+        <property name="project.name" value="org.academiadecodigo.whiledlings.whiledbits.sound-library" />
         <property name="src.dir" value="src" />
         <property name="main.class" value="org.academiadecodigo.bootcamp.Main" />
         <property name="build.dir" value="build" />
@@ -37,7 +37,7 @@
     <target name="jarfile" description="Archives the code" depends="compile">
         <jar destfile="${build.dir}/${project.name}.jar" basedir="${classes.dir}">
             <manifest>
-                <attribute name="Main-Class" value="${main.class}" />
+                <attribute name="org.academiadecodigo.whiledlings.whiledbits.Main-Class" value="${main.class}" />
                 <attribute name="Class-Path" value="${lib.dir} ${resources.dir}" />
             </manifest>
             <zipgroupfileset dir="${lib.dir}" includes="*.jar"/>
