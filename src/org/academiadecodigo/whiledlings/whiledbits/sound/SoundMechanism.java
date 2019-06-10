@@ -1,16 +1,16 @@
-package org.academiadecodigo.bootcamp;
+package org.academiadecodigo.whiledlings.whiledbits.sound;
 
 import javax.sound.sampled.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 
-public class Sound {
+public class SoundMechanism {
 
     private Clip clip;
     private URL soundURL;
 
-    public Sound(String path) {
+    public SoundMechanism(String path) {
         initClip(path);
     }
 
@@ -56,7 +56,7 @@ public class Sound {
 
     private void initClip(String path) {
 
-        soundURL = Sound.class.getResource(path); //if loading from jar
+        soundURL = SoundMechanism.class.getResource(path); //if loading from jar
         AudioInputStream inputStream = null;
 
         try {
