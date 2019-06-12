@@ -13,8 +13,8 @@ public class Main {
 
 
 
-        SoundMechanism sound = new SoundMechanism("/resources/sounds/testSounds/puddipuddimusic.wav");
-        sound.play(true);
+        //SoundMechanism sound = new SoundMechanism("/resources/sounds/testSounds/puddipuddimusic.wav");
+        //sound.play(true);
 
         Thread.sleep(600);
 
