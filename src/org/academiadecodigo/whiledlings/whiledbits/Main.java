@@ -12,11 +12,23 @@ public class Main {
 
 
 
+        /*
+        SoundMechanism sound1 = new SoundMechanism("/resources/sounds/testSounds/puddipuddimusic.wav");
+        sound1.play(true);
+        System.out.println("Play sound 1");
 
-        //SoundMechanism sound = new SoundMechanism("/resources/sounds/testSounds/puddipuddimusic.wav");
-        //sound.play(true);
+        Thread.sleep(1000);
 
-        Thread.sleep(600);
+        SoundMechanism sound2 = new SoundMechanism("/resources/sounds/testSounds/puddipuddimusic.wav");
+        sound2.play(true);
+        System.out.println("Play sound 2");
+
+        Thread.sleep(20000);
+
+        sound1.stop();
+        System.out.println("Stop sound 1");
+
+         */
 
     }
 

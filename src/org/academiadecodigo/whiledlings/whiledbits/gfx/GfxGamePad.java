@@ -8,7 +8,7 @@ public class GfxGamePad {
 
     private String pathImages = "./resources/images/";
 
-    public void drawPad() throws InterruptedException {
+    public void drawPad(){
 
         // Draw background rectangle
 
