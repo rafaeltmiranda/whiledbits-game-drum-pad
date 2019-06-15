@@ -1,12 +1,14 @@
 package org.academiadecodigo.whiledlings.whiledbits.pads;
 
+import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
 public class PadsNotes extends Pads{
 
     private SoundsGroup soundsGroup;
+    private boolean[] playing;
 
-    public PadsNotes (SoundsGroup soundsGoup) {
+    public PadsNotes (SoundsGroup soundsGoup, GfxGamePad gfxGamePad) {
 
         this.soundsGroup = soundsGoup;
 
@@ -24,7 +26,7 @@ public class PadsNotes extends Pads{
     }
 
     @Override
-    public int activePad() {
-        return 0;
+    public boolean[] activePad() {
+        return playing;
     }
 }

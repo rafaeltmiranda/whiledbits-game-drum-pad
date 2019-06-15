@@ -72,13 +72,13 @@ public class GfxGamePad {
     }
 
     public void selectPad(int index) {
-        pads[index].draw();
-        padsSelected[index].delete();
+        //pads[index].draw();
+        //padsSelected[index].delete();
     }
 
     public void unselectPad(int index) {
-        pads[index].delete();
-        padsSelected[index].draw();
+        //pads[index].delete();
+        //padsSelected[index].draw();
     }
 
     public void selectDrumGroup() {

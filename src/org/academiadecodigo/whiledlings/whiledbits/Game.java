@@ -14,14 +14,19 @@ public class Game {
     private SoundsGroup selectedGroup;
     private Pads selectedPadGroup;
     private GfxGamePad gfxGamePad;
-    private PadsSample drums = new PadsSample(SoundsGroup.DRUMS);
-    private PadsSample samples = new PadsSample(SoundsGroup.SAMPLES);
-    private PadsNotes notes = new PadsNotes(SoundsGroup.NOTES);
+    private PadsSample drums;
+    private PadsSample samples;
+    private PadsNotes notes;
 
     public void startPad() {
 
         gfxGamePad = new GfxGamePad();
         gfxGamePad.drawPad();
+
+        this.drums = new PadsSample(SoundsGroup.DRUMS, gfxGamePad);
+        this.samples = new PadsSample(SoundsGroup.SAMPLES, gfxGamePad);
+        this.notes = new PadsNotes(SoundsGroup.NOTES, gfxGamePad);
+
 
         selectedGroup = SoundsGroup.DRUMS;
         selectedPadGroup = drums;

@@ -1,20 +1,41 @@
 package org.academiadecodigo.whiledlings.whiledbits.pads;
 
+import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
+import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
 public class PadsSample extends Pads{
 
     private SoundsGroup soundsGroup;
+    private SoundMechanism[] sound;
+    private GfxGamePad gfxGamePad;
+    private boolean[] playing;
 
-    public PadsSample(SoundsGroup soundsGroup) {
+    public PadsSample(SoundsGroup soundsGroup, GfxGamePad gfxGamePad) {
 
+        this.gfxGamePad = gfxGamePad;
         this.soundsGroup = soundsGroup;
+        playing = new boolean[10];
+        sound = new SoundMechanism[10];
 
+        for(int i=0; i<sound.length;i++){
+            sound[i]= new SoundMechanism(PathDrums.values()[i].getPath());
+            playing[i] = false;
+        }
     }
 
 
     @Override
     public void padPressed(int pad) {
+        if(!playing[pad]) {
+            sound[pad].setLoop(4);
+            gfxGamePad.selectPad(pad);
+            playing[pad] = true;
+            return;
+        }
+        sound[pad].stop();
+        gfxGamePad.unselectPad(pad);
+        playing[pad]=false;
 
     }
 
@@ -24,7 +45,7 @@ public class PadsSample extends Pads{
     }
 
     @Override
-    public int activePad() {
-        return 0;
+    public boolean[] activePad() {
+        return playing;
     }
 }
