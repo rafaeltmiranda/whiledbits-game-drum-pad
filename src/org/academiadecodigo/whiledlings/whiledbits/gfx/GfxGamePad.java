@@ -34,39 +34,51 @@ public class GfxGamePad {
         // Draw function icons
 
         drums = new Picture(660, 130, pathImages + "buttons/functional/drum.png");
-        drumsSelected = new Picture(600,130, pathImages + "buttons/functional/drum.png");
+        drumsSelected = new Picture(660,130, pathImages + "buttons/functional/drumGlow.png");
         drums.draw();
 
         samples = new Picture(930, 130, pathImages + "buttons/functional/sample.png");
-        samplesSelected = new Picture(930, 130, pathImages + "buttons/functional/sample.png");
+        samplesSelected = new Picture(930, 130, pathImages + "buttons/functional/sampleGlow.png");
         samples.draw();
 
         notes = new Picture(1200, 130, pathImages + "buttons/functional/notes.png");
-        notesSelected = new Picture(1200, 130, pathImages + "buttons/functional/notes.png");
+        notesSelected = new Picture(1200, 130, pathImages + "buttons/functional/notesGlow.png");
         notes.draw();
 
 
 
         // Draw pads 1st line
 
-        for (int i = 0 ; i < 5 ; i++ ) {
-            GfxPadsPics randomButtom = GfxPadsPics.values()[(int) (Math.random() * GfxPadsPics.values().length)];
+        for (int i = 0 ; i <= 2 ; i++ ) {
 
-            pads[i] = new Picture(80 + 270 * i, 360, randomButtom.getPath());
-            pads[i].draw();
+                GfxPadsPics randomButton = GfxPadsPics.values()[i];
 
-            padsSelected[i] = new Picture(80 + 270 * i, 360, randomButtom.getPath());
+                pads[i] = new Picture(80 + 270 * i, 360, randomButton.getPath());
+                pads[i].draw();
+
+                padsSelected[i] = new Picture(80 + 270 * i, 360, randomButton.getPath());
+
+                pads[i] = new Picture(80 + 270 * i, 620, randomButton.getPath());
+                pads[i].draw();
+
+                padsSelected[i] = new Picture(80 + 270 * i, 620, randomButton.getPath());
+
         }
 
         // Draw pads 2nd line
 
-        for (int i = 5 ; i < 10 ; i++ ) {
-            GfxPadsPics randomButtom = GfxPadsPics.values()[(int) (Math.random() * GfxPadsPics.values().length)];
+        for (int i = 0 ; i < 2 ; i++ ) {
+            GfxPadsPics randomButton = GfxPadsPics.values()[i];
 
-            pads[i] = new Picture(80 + 270 * (i-5), 620, randomButtom.getPath());
+            pads[i] = new Picture(80 + 270 * (i+3), 360, randomButton.getPath());
             pads[i].draw();
 
-            padsSelected[i] = new Picture(80 + 270 * (i-5), 620, randomButtom.getPath());
+            padsSelected[i] = new Picture(80 + 270 * (i+3), 360, randomButton.getPath());
+
+            pads[i] = new Picture(80 + 270 * (i+3), 620, randomButton.getPath());
+            pads[i].draw();
+
+            padsSelected[i] = new Picture(80 + 270 * (i+3), 620, randomButton.getPath());
         }
 
     }

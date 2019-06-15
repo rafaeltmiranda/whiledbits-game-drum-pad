@@ -12,8 +12,7 @@ public class PadsNotes extends Pads{
     GfxGamePad gfxGamePad;
 
     public PadsNotes(SoundsGroup soundsGroup, GfxGamePad gfxGamePad) {
-
-        this.soundsGroup = soundsGroup;
+            this.soundsGroup = soundsGroup;
         this.gfxGamePad = gfxGamePad;
         playing = new boolean[10];
         sounds = new SoundMechanism[10];
@@ -48,5 +47,6 @@ public class PadsNotes extends Pads{
     @Override
     public boolean[] activePad() {
         return playing;
+
     }
 }
