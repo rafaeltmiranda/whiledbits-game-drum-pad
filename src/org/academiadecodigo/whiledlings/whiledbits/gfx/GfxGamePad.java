@@ -34,7 +34,7 @@ public class GfxGamePad {
         // Draw function icons
 
         drums = new Picture(660, 130, pathImages + "buttons/functional/drum.png");
-        drumsSelected = new Picture(600,130, pathImages + "buttons/functional/drumGlow.png");
+        drumsSelected = new Picture(660,130, pathImages + "buttons/functional/drumGlow.png");
         drums.draw();
 
         samples = new Picture(930, 130, pathImages + "buttons/functional/sample.png");
