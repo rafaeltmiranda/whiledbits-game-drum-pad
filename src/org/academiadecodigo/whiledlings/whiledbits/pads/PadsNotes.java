@@ -2,7 +2,7 @@ package org.academiadecodigo.whiledlings.whiledbits.pads;
 
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
-public class PadsNotes {
+public class PadsNotes extends Pads{
 
     private SoundsGroup soundsGroup;
 
@@ -12,4 +12,14 @@ public class PadsNotes {
 
     }
 
+
+    @Override
+    public void padPressed(int pad) {
+
+    }
+
+    @Override
+    public void padReleased(int pad) {
+
+    }
 }

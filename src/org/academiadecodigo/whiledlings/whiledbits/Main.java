@@ -5,7 +5,7 @@ import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 public class Main {
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         Game game = new Game();
         game.startPad();
