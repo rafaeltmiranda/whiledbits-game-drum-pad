@@ -1,6 +1,7 @@
 package org.academiadecodigo.whiledlings.whiledbits.pads;
 
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
+import org.academiadecodigo.whiledlings.whiledbits.sound.PathDrums;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
@@ -11,10 +12,12 @@ public class PadsSample extends Pads{
     private GfxGamePad gfxGamePad;
     private boolean[] playing;
 
+
     public PadsSample(SoundsGroup soundsGroup, GfxGamePad gfxGamePad) {
 
         this.gfxGamePad = gfxGamePad;
         this.soundsGroup = soundsGroup;
+
         playing = new boolean[10];
         sound = new SoundMechanism[10];
 
@@ -36,12 +39,10 @@ public class PadsSample extends Pads{
         sound[pad].stop();
         gfxGamePad.unselectPad(pad);
         playing[pad]=false;
-
     }
 
     @Override
     public void padReleased(int pad) {
-
     }
 
     @Override
