@@ -22,4 +22,9 @@ public class PadsNotes extends Pads{
     public void padReleased(int pad) {
 
     }
+
+    @Override
+    public int activePad() {
+        return 0;
+    }
 }
