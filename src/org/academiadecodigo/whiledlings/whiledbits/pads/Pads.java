@@ -6,4 +6,6 @@ public abstract class Pads {
 
     public abstract void padReleased(int pad);
 
+    public abstract int activePad();
+
 }
