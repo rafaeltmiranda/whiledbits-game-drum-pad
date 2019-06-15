@@ -1,6 +1,7 @@
 package org.academiadecodigo.whiledlings.whiledbits.pads;
 
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
+import org.academiadecodigo.whiledlings.whiledbits.sound.PathNotes;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 

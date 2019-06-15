@@ -6,11 +6,10 @@ import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 public class PadsSample extends Pads{
 
     private SoundsGroup soundsGroup;
-<<<<<<< HEAD
+
     private boolean[] playing;
-=======
+
     private GfxGamePad gfxGamePad;
->>>>>>> 751099ec684b3b0a619452edd01ba3c89ad1d88d
 
     public PadsSample(SoundsGroup soundsGroup, GfxGamePad gfxGamePad) {
 
@@ -30,10 +29,6 @@ public class PadsSample extends Pads{
 
     @Override
     public boolean[] activePad() {
-<<<<<<< HEAD
         return playing;
-=======
-        return null;
->>>>>>> 751099ec684b3b0a619452edd01ba3c89ad1d88d
     }
 }

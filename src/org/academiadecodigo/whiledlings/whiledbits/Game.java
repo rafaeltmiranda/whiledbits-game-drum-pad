@@ -13,13 +13,8 @@ public class Game {
     private SoundsGroup selectedGroup;
     private Pads selectedPadGroup;
     private GfxGamePad gfxGamePad;
-<<<<<<< HEAD
-    private PadsSample drums = new PadsSample(SoundsGroup.DRUMS);
-    private PadsSample samples = new PadsSample(SoundsGroup.SAMPLES);
-=======
     private PadsSample drums;
     private PadsNotes samples;
->>>>>>> 751099ec684b3b0a619452edd01ba3c89ad1d88d
     private PadsNotes notes;
 
     public void startPad() {
@@ -27,17 +22,11 @@ public class Game {
         gfxGamePad = new GfxGamePad();
         gfxGamePad.drawPad();
 
-<<<<<<< HEAD
-        selectedGroup = SoundsGroup.DRUMS;
-        selectedPadGroup = drums;
-        notes = new PadsNotes(SoundsGroup.NOTES, gfxGamePad);
-=======
         drums = new PadsSample(SoundsGroup.DRUMS, gfxGamePad);
         samples = new PadsNotes(SoundsGroup.SAMPLES, gfxGamePad);
         notes = new PadsNotes(SoundsGroup.NOTES, gfxGamePad);
 
         selectGroup(SoundsGroup.DRUMS);
->>>>>>> 751099ec684b3b0a619452edd01ba3c89ad1d88d
 
         Player player = new Player(drums, samples, notes, this);
         player.init();
