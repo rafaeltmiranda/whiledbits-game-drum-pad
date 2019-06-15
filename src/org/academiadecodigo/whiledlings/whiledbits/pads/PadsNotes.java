@@ -15,8 +15,8 @@ public class PadsNotes extends Pads{
 
         this.soundsGroup = soundsGroup;
         this.gfxGamePad = gfxGamePad;
-        playing = new boolean[9];
-        sounds = new SoundMechanism[9];
+        playing = new boolean[10];
+        sounds = new SoundMechanism[10];
 
         for (int i = 0; i < sounds.length; i++){
             sounds[i] = new SoundMechanism(PathNotes.values()[i].getPath());
