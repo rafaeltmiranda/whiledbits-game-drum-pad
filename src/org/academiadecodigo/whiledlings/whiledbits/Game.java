@@ -16,7 +16,7 @@ public class Game {
     private GfxGamePad gfxGamePad;
     private PadsSample drums = new PadsSample(SoundsGroup.DRUMS);
     private PadsSample samples = new PadsSample(SoundsGroup.SAMPLES);
-    private PadsNotes notes = new PadsNotes(SoundsGroup.NOTES);
+    private PadsNotes notes;
 
     public void startPad() {
 
@@ -25,6 +25,7 @@ public class Game {
 
         selectedGroup = SoundsGroup.DRUMS;
         selectedPadGroup = drums;
+        notes = new PadsNotes(SoundsGroup.NOTES, gfxGamePad);
 
         Player player = new Player(drums, samples, notes, this);
         player.init();

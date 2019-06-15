@@ -5,6 +5,7 @@ import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 public class PadsSample extends Pads{
 
     private SoundsGroup soundsGroup;
+    private boolean[] playing;
 
     public PadsSample(SoundsGroup soundsGroup) {
 
@@ -24,7 +25,7 @@ public class PadsSample extends Pads{
     }
 
     @Override
-    public int activePad() {
-        return 0;
+    public boolean[] activePad() {
+        return playing;
     }
 }

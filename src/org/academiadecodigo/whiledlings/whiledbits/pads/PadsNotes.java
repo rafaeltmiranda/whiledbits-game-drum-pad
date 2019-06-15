@@ -1,16 +1,27 @@
 package org.academiadecodigo.whiledlings.whiledbits.pads;
 
+import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
 public class PadsNotes extends Pads{
 
     private SoundsGroup soundsGroup;
-    private SoundMechanism sound;
+    private SoundMechanism[] sounds;
+    private boolean[] playing;
+    GfxGamePad gfxGamePad;
 
-    public PadsNotes (SoundsGroup soundsGroup) {
+    public PadsNotes(SoundsGroup soundsGroup, GfxGamePad gfxGamePad) {
 
         this.soundsGroup = soundsGroup;
+        this.gfxGamePad = gfxGamePad;
+        playing = new boolean[9];
+        sounds = new SoundMechanism[9];
+
+        for (int i = 0; i < sounds.length; i++){
+            sounds[i] = new SoundMechanism(PathNotes.values()[i].getPath());
+            playing[i] = false;
+        }
 
     }
 
@@ -18,67 +29,24 @@ public class PadsNotes extends Pads{
     @Override
     public void padPressed(int pad) {
 
-        switch (pad) {
-
-            case 0:
-                sound = new SoundMechanism(PathNotes.PAD_0.getPath());
-                sound.play(true);
-                break;
-
-            case 1:
-                sound = new SoundMechanism(PathNotes.PAD_1.getPath());
-                sound.play(true);
-                break;
-
-            case 2:
-                sound = new SoundMechanism(PathNotes.PAD_2.getPath());
-                sound.play(true);
-                break;
-
-            case 3:
-                sound = new SoundMechanism(PathNotes.PAD_3.getPath());
-                sound.play(true);
-                break;
-
-            case 4:
-                sound = new SoundMechanism(PathNotes.PAD_4.getPath());
-                sound.play(true);
-                break;
-
-            case 5:
-                sound = new SoundMechanism(PathNotes.PAD_5.getPath());
-                sound.play(true);
-                break;
-
-            case 6:
-                sound = new SoundMechanism(PathNotes.PAD_6.getPath());
-                sound.play(true);
-                break;
-
-            case 7:
-                sound = new SoundMechanism(PathNotes.PAD_7.getPath());
-                sound.play(true);
-                break;
-
-            case 8:
-                sound = new SoundMechanism(PathNotes.PAD_8.getPath());
-                sound.play(true);
-                break;
-
-            case 9:
-                sound = new SoundMechanism(PathNotes.PAD_9.getPath());
-                sound.play(true);
-                break;
+        if (!playing[pad]){
+            sounds[pad].play(true);
+            playing[pad] = true;
+            gfxGamePad.selectPad(pad);
         }
     }
 
     @Override
     public void padReleased(int pad) {
 
+        sounds[pad].stop();
+        playing[pad] = false;
+        gfxGamePad.unselectPad(pad);
+
     }
 
     @Override
-    public int activePad() {
-        return -1;
+    public boolean[] activePad() {
+        return playing;
     }
 }
