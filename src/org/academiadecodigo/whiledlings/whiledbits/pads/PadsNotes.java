@@ -2,6 +2,7 @@ package org.academiadecodigo.whiledlings.whiledbits.pads;
 
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
 import org.academiadecodigo.whiledlings.whiledbits.sound.PathNotes;
+import org.academiadecodigo.whiledlings.whiledbits.sound.PathSamples;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
@@ -13,14 +14,22 @@ public class PadsNotes extends Pads{
     GfxGamePad gfxGamePad;
 
     public PadsNotes(SoundsGroup soundsGroup, GfxGamePad gfxGamePad) {
-            this.soundsGroup = soundsGroup;
+        this.soundsGroup = soundsGroup;
         this.gfxGamePad = gfxGamePad;
         playing = new boolean[10];
         sounds = new SoundMechanism[10];
 
+
         for (int i = 0; i < sounds.length; i++){
-            sounds[i] = new SoundMechanism(PathNotes.values()[i].getPath());
+
             playing[i] = false;
+
+            if (soundsGroup == SoundsGroup.NOTES) {
+                sounds[i] = new SoundMechanism(PathNotes.values()[i].getPath());
+                continue;
+            }
+
+            sounds[i] = new SoundMechanism(PathSamples.values()[i].getPath());
         }
 
     }

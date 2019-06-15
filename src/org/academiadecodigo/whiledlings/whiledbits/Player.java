@@ -6,6 +6,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.whiledlings.whiledbits.Game;
 import org.academiadecodigo.whiledlings.whiledbits.pads.Pads;
+import org.academiadecodigo.whiledlings.whiledbits.pads.PadsNotes;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
 public class Player implements KeyboardHandler {
@@ -152,7 +153,7 @@ public class Player implements KeyboardHandler {
 
         System.out.println("Key " + keyboardEvent.getKey() + " released.");
 
-        if(game.getSelectedGroup() == SoundsGroup.NOTES) {
+        if(game.getSelectedPadGroup() instanceof PadsNotes) {
 
             switch (keyboardEvent.getKey()) {
                 case KeyboardEvent.KEY_E:
