@@ -31,7 +31,6 @@ public class PadsNotes extends Pads{
 
             sounds[i] = new SoundMechanism(PathSamples.values()[i].getPath());
         }
-
     }
 
 
@@ -57,6 +56,5 @@ public class PadsNotes extends Pads{
     @Override
     public boolean[] activePad() {
         return playing;
-
     }
 }
