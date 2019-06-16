@@ -2,10 +2,8 @@ package org.academiadecodigo.whiledlings.whiledbits.gfx;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
-import org.academiadecodigo.simplegraphics.graphics.Text;
 import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.whiledlings.whiledbits.Game;
-import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 
 public class GfxGamePad {
 
@@ -22,9 +20,6 @@ public class GfxGamePad {
         // InitializeObjects
         initializeAllGfx();
 
-        // Loading Screen
-        //loadingThing();
-
         // Draw Initial Objects
         drawInitialGfx();
 
@@ -34,6 +29,7 @@ public class GfxGamePad {
 
         // General
         view = new Rectangle(0,0,1440,900);
+        view.setColor(Color.BLACK);
         neon = new Picture(0, 0, Game.resourcesPathImages + "backGroundNeon_1.png");
         logo = new Picture(80, 80, Game.resourcesPathImages + "logo.png");
 
@@ -133,48 +129,6 @@ public class GfxGamePad {
     }
 
 
-    public void loadingThing() {
 
-        Rectangle viewLoading = new Rectangle(0,0,1440,900);
-        viewLoading.setColor(Color.BLACK);
-        viewLoading.fill();
-
-        Text loadingText = new Text(650,400,"<PrepareYourselves_>");
-        loadingText.grow(250, 40);
-        loadingText.setColor(Color.PINK);
-
-
-        for (int i=0 ; i<3 ; i++) {
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            SoundMechanism intro = new SoundMechanism("/resources/sounds/padSounds/mcs/Faustino/okFx.wav");
-            intro.play(true);
-            loadingText.draw();
-
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
-            intro.stop();
-            loadingText.delete();
-
-        }
-
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
-        viewLoading.delete();
-
-    }
 
 }

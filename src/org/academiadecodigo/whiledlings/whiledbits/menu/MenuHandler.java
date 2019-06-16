@@ -4,6 +4,7 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.whiledlings.whiledbits.Game;
 import org.academiadecodigo.whiledlings.whiledbits.Player;
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxMenu;
+import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 
 public class MenuHandler {
 
@@ -13,6 +14,7 @@ public class MenuHandler {
     private Player player;
     private boolean mainMenu;
     private Picture menuOptionImg;
+    private SoundMechanism sound;
 
     public MenuHandler(Game game){
         this.game = game;
@@ -22,6 +24,9 @@ public class MenuHandler {
 
         player = new Player(this);
         player.init();
+
+        sound = new SoundMechanism("/resources/sounds/introSong.wav");
+        sound.play(true);
 
         menuOpsSelected = MenuOptions.PLAY;
         mainMenu = true;
@@ -62,6 +67,7 @@ public class MenuHandler {
 
         if (menuOpsSelected.ordinal() == 0) {
             System.out.println("play");
+            sound.stop();
             mainMenu = false;
             player.outMenu();
             game.startPad();
