@@ -13,6 +13,7 @@ public class MenuHandler {
     private Player player;
     private boolean mainMenu;
     private Picture menuOptionImg;
+    private boolean menuOption;
 
     public MenuHandler(Game game){
         this.game = game;
@@ -71,6 +72,7 @@ public class MenuHandler {
         if (menuOpsSelected.ordinal() == 1) {
             System.out.println("Inst");
             mainMenu = false;
+            menuOption = true;
             menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallInst.png");
             menuOptionImg.draw();
             return;
@@ -79,6 +81,7 @@ public class MenuHandler {
         if (menuOpsSelected.ordinal() == 2) {
             System.out.println("kcs");
             mainMenu = false;
+            menuOption = true;
             menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallKcs.png");
             menuOptionImg.draw();
             return;
@@ -90,9 +93,13 @@ public class MenuHandler {
         if (!mainMenu){
             mainMenu = true;
             menuOptionImg.delete();
+            menuOption = false;
+            return;
+        }
+
+        if (!menuOption){
+            System.exit(0);
         }
     }
-
-
 
 }
