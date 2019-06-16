@@ -9,7 +9,7 @@ import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 
 public class GfxGamePad {
 
-    private Picture drums, drumsSelected, samples, samplesSelected, notes, notesSelected;
+    private Picture drums, drumsSelected, samples, samplesSelected, notes, notesSelected, mcsSelected;
     private Picture[] pads = new Picture[10];
     private Picture[] padsSelected = new Picture[10];
     private Picture neon;
@@ -46,6 +46,8 @@ public class GfxGamePad {
 
         notes = new Picture(1200, 130, Game.resourcesPathImages + "buttons/functional/notes.png");
         notesSelected = new Picture(1200, 130, Game.resourcesPathImages + "buttons/functional/notesGlow.png");
+
+        mcsSelected = new Picture(660,50, Game.resourcesPathImages +"buttons/functional/mcsPad.png");
 
         // Pads
         for (int i = 0 ; i <= 2 ; i++ ) {
@@ -105,18 +107,29 @@ public class GfxGamePad {
         drumsSelected.draw();
         samplesSelected.delete();
         notesSelected.delete();
+        mcsSelected.delete();
     }
 
     public void selectSampleGroup() {
         drumsSelected.delete();
         samplesSelected.draw();
         notesSelected.delete();
+        mcsSelected.delete();
     }
 
     public void selectNotesGroup() {
         drumsSelected.delete();
         samplesSelected.delete();
         notesSelected.draw();
+        mcsSelected.delete();
+    }
+
+    public void selectMcsGroup() {
+
+        drumsSelected.delete();
+        samplesSelected.delete();
+        notesSelected.delete();
+        mcsSelected.draw();
     }
 
 
