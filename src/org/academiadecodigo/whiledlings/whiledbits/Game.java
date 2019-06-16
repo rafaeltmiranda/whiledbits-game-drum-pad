@@ -2,6 +2,8 @@ package org.academiadecodigo.whiledlings.whiledbits;
 
 
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
+import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxMenu;
+import org.academiadecodigo.whiledlings.whiledbits.menu.MenuHandler;
 import org.academiadecodigo.whiledlings.whiledbits.pads.Pads;
 import org.academiadecodigo.whiledlings.whiledbits.pads.PadsNotes;
 import org.academiadecodigo.whiledlings.whiledbits.pads.PadsSample;
@@ -10,15 +12,26 @@ import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
 public class Game {
 
+    private boolean inMenu = true;
+    private MenuHandler menuHandler;
     private SoundsGroup selectedGroup;
     private Pads selectedPadGroup;
     private GfxGamePad gfxGamePad;
     private PadsSample drums;
     private PadsNotes samples;
     private PadsNotes notes;
+    private Player player;
+
+    public void startMenu(){
+        inMenu = true;
+        menuHandler = new MenuHandler(this);
+
+    }
+
 
     public void startPad() {
 
+        inMenu = false;
         gfxGamePad = new GfxGamePad();
         gfxGamePad.drawPad();
 
@@ -28,7 +41,7 @@ public class Game {
 
         selectGroup(SoundsGroup.DRUMS);
 
-        Player player = new Player(drums, samples, notes, this);
+        player = new Player(drums, samples, notes, this);
         player.init();
 
     }
@@ -83,4 +96,15 @@ public class Game {
 
     }
 
+    public Player getPlayer() {
+        return player;
+    }
+
+    public boolean isInMenu() {
+        return inMenu;
+    }
+
+    public MenuHandler getMenuHandler() {
+        return menuHandler;
+    }
 }

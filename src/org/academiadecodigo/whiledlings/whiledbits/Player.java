@@ -5,6 +5,7 @@ import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
 import org.academiadecodigo.whiledlings.whiledbits.Game;
+import org.academiadecodigo.whiledlings.whiledbits.menu.MenuHandler;
 import org.academiadecodigo.whiledlings.whiledbits.pads.Pads;
 import org.academiadecodigo.whiledlings.whiledbits.pads.PadsNotes;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
@@ -12,10 +13,15 @@ import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 public class Player implements KeyboardHandler {
 
     private Game game;
+
+    private MenuHandler menuHandler;
+    private boolean menuSelected;
+
     private Keyboard keyboard;
     private KeyboardEvent[] padKey = new KeyboardEvent[10];
     private KeyboardEvent[] padKeyReleased = new KeyboardEvent[10];
     private KeyboardEvent[] groupKey = new KeyboardEvent[3];
+    private KeyboardEvent[] menuKeys = new KeyboardEvent[4];
     private Pads drums, samples, notes;
 
     public Player(Pads drums, Pads samples, Pads notes, Game game) {
@@ -26,6 +32,15 @@ public class Player implements KeyboardHandler {
         this.drums = drums;
         this.samples = samples;
         this.notes = notes;
+        menuSelected = false;
+
+    }
+
+    public Player(MenuHandler menuHandler) {
+
+        this.menuHandler = menuHandler;
+        keyboard = new Keyboard(this);
+        menuSelected = true;
 
     }
 
@@ -33,7 +48,34 @@ public class Player implements KeyboardHandler {
 
         // Initialize Key Pressed
 
-        for (int i = 0 ; i<10 ; i++) {
+        if (menuSelected) {
+
+            menuKeys[0] = new KeyboardEvent();
+            menuKeys[0].setKey(KeyboardEvent.KEY_LEFT);
+            menuKeys[0].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+            menuKeys[1] = new KeyboardEvent();
+            menuKeys[1].setKey(KeyboardEvent.KEY_RIGHT);
+            menuKeys[1].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+            menuKeys[2] = new KeyboardEvent();
+            menuKeys[2].setKey(KeyboardEvent.KEY_SPACE);
+            menuKeys[2].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+            menuKeys[3] = new KeyboardEvent();
+            menuKeys[3].setKey(KeyboardEvent.KEY_Q);
+            menuKeys[3].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+            keyboard.addEventListener(menuKeys[0]);
+            keyboard.addEventListener(menuKeys[1]);
+            keyboard.addEventListener(menuKeys[2]);
+            keyboard.addEventListener(menuKeys[3]);
+
+            return;
+        }
+
+
+        for (int i = 0; i < 10; i++) {
             padKey[i] = new KeyboardEvent();
             padKey[i].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
@@ -73,7 +115,7 @@ public class Player implements KeyboardHandler {
         padKeyReleased[9].setKey(KeyboardEvent.KEY_J);
 
 
-        for (int i=0 ; i<10 ; i++) {
+        for (int i = 0; i < 10; i++) {
             keyboard.addEventListener(padKey[i]);
             keyboard.addEventListener(padKeyReleased[i]);
         }
@@ -95,6 +137,8 @@ public class Player implements KeyboardHandler {
         keyboard.addEventListener(groupKey[1]);
         keyboard.addEventListener(groupKey[2]);
 
+
+
     }
 
     @Override
@@ -102,7 +146,26 @@ public class Player implements KeyboardHandler {
 
         System.out.println("Key " + keyboardEvent.getKey() + " pressed.");
 
-        switch (keyboardEvent.getKey()) {
+        if(menuSelected) {
+
+            switch (keyboardEvent.getKey()) {
+                case KeyboardEvent.KEY_LEFT:
+                    menuHandler.keyLeft();
+                    break;
+                case KeyboardEvent.KEY_RIGHT:
+                    menuHandler.keyRight();
+                    break;
+                case KeyboardEvent.KEY_SPACE:
+                    menuHandler.keySpace();
+                    break;
+                case KeyboardEvent.KEY_Q:
+                    menuHandler.keyQ();
+                    break;
+            }
+            return;
+        }
+        switch (keyboardEvent.getKey()){
+
             case KeyboardEvent.KEY_1:
                 game.selectGroup(SoundsGroup.DRUMS);
                 break;
