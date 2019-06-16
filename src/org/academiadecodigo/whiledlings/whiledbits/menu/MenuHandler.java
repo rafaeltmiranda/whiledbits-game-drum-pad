@@ -4,6 +4,8 @@ import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.whiledlings.whiledbits.Game;
 import org.academiadecodigo.whiledlings.whiledbits.Player;
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxMenu;
+import org.academiadecodigo.whiledlings.whiledbits.sound.PathNotes;
+import org.academiadecodigo.whiledlings.whiledbits.sound.PathSamples;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
 
 public class MenuHandler {
@@ -17,6 +19,9 @@ public class MenuHandler {
     private boolean menuOption;
     private SoundMechanism sound;
 
+    private SoundMechanism soundArrows = new SoundMechanism(PathNotes.PAD_0.getPath());
+    private SoundMechanism soundConfirm = new SoundMechanism(PathSamples.PAD_7.getPath());
+
     public MenuHandler(Game game){
         this.game = game;
         gfxMenu = new GfxMenu();
@@ -27,6 +32,7 @@ public class MenuHandler {
         player.init();
 
         sound = new SoundMechanism("/resources/sounds/introSong.wav");
+        sound.setLoop(4);
         sound.play(true);
 
         menuOpsSelected = MenuOptions.PLAY;
@@ -40,6 +46,11 @@ public class MenuHandler {
         }
 
         if (menuOpsSelected.ordinal() - 1 >= 0) {
+
+            soundArrows.stop();
+            soundArrows = new SoundMechanism(PathNotes.values()[(int) (Math.random() * PathNotes.values().length)].getPath());
+            soundArrows.play(true);
+
             menuOpsSelected = MenuOptions.values()[menuOpsSelected.ordinal() - 1];
             gfxMenu.selectOps(menuOpsSelected.ordinal());
             System.out.println(menuOpsSelected.ordinal());
@@ -53,6 +64,11 @@ public class MenuHandler {
         }
 
         if (menuOpsSelected.ordinal() + 1 < MenuOptions.values().length) {
+
+            soundArrows.stop();
+            soundArrows = new SoundMechanism(PathNotes.values()[(int) (Math.random() * PathNotes.values().length)].getPath());
+            soundArrows.play(true);
+
             menuOpsSelected = MenuOptions.values()[menuOpsSelected.ordinal() + 1];
             gfxMenu.selectOps(menuOpsSelected.ordinal());
             System.out.println(menuOpsSelected.ordinal());
@@ -67,16 +83,23 @@ public class MenuHandler {
         }
 
         if (menuOpsSelected.ordinal() == 0) {
-            System.out.println("play");
+
             sound.stop();
+            soundArrows.stop();
+
+            soundConfirm.play(true);
+
             mainMenu = false;
             player.outMenu();
             game.startPad();
             return;
         }
 
+        soundArrows.stop();
+        soundArrows = new SoundMechanism(PathNotes.values()[(int) (Math.random() * PathNotes.values().length)].getPath());
+        soundArrows.play(true);
+
         if (menuOpsSelected.ordinal() == 1) {
-            System.out.println("Inst");
             mainMenu = false;
             menuOption = true;
             menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallInst.png");
@@ -85,7 +108,6 @@ public class MenuHandler {
         }
 
         if (menuOpsSelected.ordinal() == 2) {
-            System.out.println("kcs");
             mainMenu = false;
             menuOption = true;
             menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallKcs.png");
@@ -95,8 +117,12 @@ public class MenuHandler {
     }
 
     public void keyQ(){
-        System.out.println("Exit");
         if (!mainMenu){
+
+            soundArrows.stop();
+            soundArrows = new SoundMechanism(PathNotes.values()[(int) (Math.random() * PathNotes.values().length)].getPath());
+            soundArrows.play(true);
+
             mainMenu = true;
             menuOptionImg.delete();
             menuOption = false;
