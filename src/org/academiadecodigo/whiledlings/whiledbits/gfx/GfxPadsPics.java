@@ -1,9 +1,11 @@
 package org.academiadecodigo.whiledlings.whiledbits.gfx;
 
+import org.academiadecodigo.whiledlings.whiledbits.Game;
+
 public enum GfxPadsPics {
-    YELLOW("./resources/images/buttons/pads/padYellow.png"),
-    BLUE("./resources/images/buttons/pads/padBlue.png"),
-    PINK("./resources/images/buttons/pads/padPink.png");
+    YELLOW(Game.resourcesPathImages + "buttons/pads/padYellow.png"),
+    BLUE(Game.resourcesPathImages + "buttons/pads/padBlue.png"),
+    PINK(Game.resourcesPathImages + "buttons/pads/padPink.png");
 
     private String path;
 
