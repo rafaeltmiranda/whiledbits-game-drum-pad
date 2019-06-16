@@ -10,12 +10,18 @@ import org.academiadecodigo.whiledlings.whiledbits.sound.SoundsGroup;
 
 public class Game {
 
+
+
     private SoundsGroup selectedGroup;
     private Pads selectedPadGroup;
     private GfxGamePad gfxGamePad;
     private PadsSample drums;
     private PadsNotes samples;
     private PadsNotes notes;
+    private Player player;
+
+    public static final int soundLoop = 100;
+    public static final String resourcesPathImages = "./resources/images/";
 
     public void startPad() {
 
@@ -28,7 +34,7 @@ public class Game {
 
         selectGroup(SoundsGroup.DRUMS);
 
-        Player player = new Player(drums, samples, notes, this);
+        player = new Player(drums, samples, notes, this);
         player.init();
 
     }
@@ -59,10 +65,6 @@ public class Game {
 
     }
 
-    public SoundsGroup getSelectedGroup() {
-        return selectedGroup;
-    }
-
     public Pads getSelectedPadGroup() {
         return selectedPadGroup;
     }
@@ -82,5 +84,10 @@ public class Game {
         }
 
     }
+
+    public GfxGamePad getGfxGamePad() {
+        return gfxGamePad;
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package org.academiadecodigo.whiledlings.whiledbits.pads;
 
+import org.academiadecodigo.whiledlings.whiledbits.Game;
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
 import org.academiadecodigo.whiledlings.whiledbits.sound.PathDrums;
 import org.academiadecodigo.whiledlings.whiledbits.sound.SoundMechanism;
@@ -31,7 +32,7 @@ public class PadsSample extends Pads{
     @Override
     public void padPressed(int pad) {
         if(!playing[pad]) {
-            sound[pad].setLoop(4);
+            sound[pad].setLoop(Game.soundLoop);
             gfxGamePad.selectPad(pad);
             playing[pad] = true;
             return;
