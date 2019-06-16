@@ -73,8 +73,9 @@ public class Game {
                 break;
             case MCS:
                 selectedPadGroup = mcs;
-                gfxGamePad.selectSampleGroup();
+                gfxGamePad.selectMcsGroup();
                 redrawPadsGroupGfx(mcs);
+                break;
         }
 
 
