@@ -23,7 +23,7 @@ public class GfxGamePad {
         initializeAllGfx();
 
         // Loading Screen
-        loadingThing();
+        //loadingThing();
 
         // Draw Initial Objects
         drawInitialGfx();

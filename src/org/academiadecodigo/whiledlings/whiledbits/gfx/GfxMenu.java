@@ -33,8 +33,8 @@ public class GfxMenu {
         menuSelected[2] = new Picture(977.5, 595.6, MenuOptions.KCS.getPathSelected());
         menuOps[2].draw();
 
-        menuWalls[0] = new Picture(0,0,pathImages + "menuBackground.png");
-        menuWalls[1] = new Picture(0,0, pathImages + "menuBackground.png");
+        menuWalls[0] = new Picture(0,0,pathImages + "menuWallInst.png");
+        menuWalls[1] = new Picture(0,0, pathImages + "menuWallKcs.png");
 
     }
 

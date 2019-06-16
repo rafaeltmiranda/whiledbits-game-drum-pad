@@ -16,6 +16,7 @@ public class Player implements KeyboardHandler {
 
     private MenuHandler menuHandler;
     private boolean menuSelected;
+    private boolean menuInstance;
 
     private Keyboard keyboard;
     private KeyboardEvent[] padKey = new KeyboardEvent[10];
@@ -33,6 +34,7 @@ public class Player implements KeyboardHandler {
         this.samples = samples;
         this.notes = notes;
         menuSelected = false;
+        menuInstance = false;
 
     }
 
@@ -41,6 +43,7 @@ public class Player implements KeyboardHandler {
         this.menuHandler = menuHandler;
         keyboard = new Keyboard(this);
         menuSelected = true;
+        menuInstance = true;
 
     }
 
@@ -48,28 +51,32 @@ public class Player implements KeyboardHandler {
 
         // Initialize Key Pressed
 
-        if (menuSelected) {
+        if (menuInstance) {
 
-            menuKeys[0] = new KeyboardEvent();
-            menuKeys[0].setKey(KeyboardEvent.KEY_LEFT);
-            menuKeys[0].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+            if (menuSelected) {
 
-            menuKeys[1] = new KeyboardEvent();
-            menuKeys[1].setKey(KeyboardEvent.KEY_RIGHT);
-            menuKeys[1].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+                menuKeys[0] = new KeyboardEvent();
+                menuKeys[0].setKey(KeyboardEvent.KEY_LEFT);
+                menuKeys[0].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-            menuKeys[2] = new KeyboardEvent();
-            menuKeys[2].setKey(KeyboardEvent.KEY_SPACE);
-            menuKeys[2].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+                menuKeys[1] = new KeyboardEvent();
+                menuKeys[1].setKey(KeyboardEvent.KEY_RIGHT);
+                menuKeys[1].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-            menuKeys[3] = new KeyboardEvent();
-            menuKeys[3].setKey(KeyboardEvent.KEY_Q);
-            menuKeys[3].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+                menuKeys[2] = new KeyboardEvent();
+                menuKeys[2].setKey(KeyboardEvent.KEY_SPACE);
+                menuKeys[2].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
-            keyboard.addEventListener(menuKeys[0]);
-            keyboard.addEventListener(menuKeys[1]);
-            keyboard.addEventListener(menuKeys[2]);
-            keyboard.addEventListener(menuKeys[3]);
+                menuKeys[3] = new KeyboardEvent();
+                menuKeys[3].setKey(KeyboardEvent.KEY_Q);
+                menuKeys[3].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
+                keyboard.addEventListener(menuKeys[0]);
+                keyboard.addEventListener(menuKeys[1]);
+                keyboard.addEventListener(menuKeys[2]);
+                keyboard.addEventListener(menuKeys[3]);
+
+            }
 
             return;
         }
@@ -151,21 +158,25 @@ public class Player implements KeyboardHandler {
 
         System.out.println("Key " + keyboardEvent.getKey() + " pressed.");
 
-        if(menuSelected) {
+        if(menuInstance) {
 
-            switch (keyboardEvent.getKey()) {
-                case KeyboardEvent.KEY_LEFT:
-                    menuHandler.keyLeft();
-                    break;
-                case KeyboardEvent.KEY_RIGHT:
-                    menuHandler.keyRight();
-                    break;
-                case KeyboardEvent.KEY_SPACE:
-                    menuHandler.keySpace();
-                    break;
-                case KeyboardEvent.KEY_Q:
-                    menuHandler.keyQ();
-                    break;
+            if (menuSelected) {
+
+                switch (keyboardEvent.getKey()) {
+                    case KeyboardEvent.KEY_LEFT:
+                        menuHandler.keyLeft();
+                        break;
+                    case KeyboardEvent.KEY_RIGHT:
+                        menuHandler.keyRight();
+                        break;
+                    case KeyboardEvent.KEY_SPACE:
+                        menuHandler.keySpace();
+                        break;
+                    case KeyboardEvent.KEY_Q:
+                        menuHandler.keyQ();
+                        break;
+                }
+
             }
             return;
         }
@@ -261,5 +272,9 @@ public class Player implements KeyboardHandler {
             }
         }
 
+    }
+
+    public void outMenu() {
+        menuSelected = false;
     }
 }

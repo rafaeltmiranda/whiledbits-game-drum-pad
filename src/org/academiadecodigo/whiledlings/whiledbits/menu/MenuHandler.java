@@ -1,5 +1,6 @@
 package org.academiadecodigo.whiledlings.whiledbits.menu;
 
+import org.academiadecodigo.simplegraphics.pictures.Picture;
 import org.academiadecodigo.whiledlings.whiledbits.Game;
 import org.academiadecodigo.whiledlings.whiledbits.Player;
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxMenu;
@@ -11,6 +12,7 @@ public class MenuHandler {
     private Game game;
     private Player player;
     private boolean mainMenu;
+    private Picture menuOptionImg;
 
     public MenuHandler(Game game){
         this.game = game;
@@ -27,6 +29,10 @@ public class MenuHandler {
 
     public void keyLeft() {
 
+        if (!mainMenu){
+            return;
+        }
+
         if (menuOpsSelected.ordinal() - 1 >= 0) {
             menuOpsSelected = MenuOptions.values()[menuOpsSelected.ordinal() - 1];
             gfxMenu.selectOps(menuOpsSelected.ordinal());
@@ -35,6 +41,11 @@ public class MenuHandler {
     }
 
     public void keyRight(){
+
+        if (!mainMenu){
+            return;
+        }
+        
         if (menuOpsSelected.ordinal() + 1 < MenuOptions.values().length) {
             menuOpsSelected = MenuOptions.values()[menuOpsSelected.ordinal() + 1];
             gfxMenu.selectOps(menuOpsSelected.ordinal());
@@ -46,21 +57,35 @@ public class MenuHandler {
     public void keySpace() {
         if (menuOpsSelected.ordinal() == 0) {
             System.out.println("play");
-            game.startPad();
             mainMenu = false;
+            player.outMenu();
+            game.startPad();
+            return;
         }
 
         if (menuOpsSelected.ordinal() == 1) {
             System.out.println("Inst");
+            menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallInst.png");
+            mainMenu = false;
+            menuOptionImg.draw();
+            return;
         }
 
         if (menuOpsSelected.ordinal() == 2) {
             System.out.println("kcs");
+            menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallKcs.png");
+            mainMenu = false;
+            menuOptionImg.draw();
+            return;
         }
     }
 
     public void keyQ(){
         System.out.println("Exit");
+        if (!mainMenu){
+            mainMenu = true;
+            menuOptionImg.delete();
+        }
     }
 
 

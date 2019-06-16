@@ -2,7 +2,6 @@ package org.academiadecodigo.whiledlings.whiledbits;
 
 
 import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxGamePad;
-import org.academiadecodigo.whiledlings.whiledbits.gfx.GfxMenu;
 import org.academiadecodigo.whiledlings.whiledbits.menu.MenuHandler;
 import org.academiadecodigo.whiledlings.whiledbits.pads.Pads;
 import org.academiadecodigo.whiledlings.whiledbits.pads.PadsNotes;
