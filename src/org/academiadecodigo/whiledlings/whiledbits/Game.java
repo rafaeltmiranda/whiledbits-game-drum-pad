@@ -16,6 +16,7 @@ public class Game {
     private PadsSample drums;
     private PadsNotes samples;
     private PadsNotes notes;
+    private PadsNotes mcs;
 
     public void startPad() {
 
@@ -25,10 +26,11 @@ public class Game {
         drums = new PadsSample(SoundsGroup.DRUMS, gfxGamePad);
         samples = new PadsNotes(SoundsGroup.SAMPLES, gfxGamePad);
         notes = new PadsNotes(SoundsGroup.NOTES, gfxGamePad);
+        mcs = new PadsNotes(SoundsGroup.MCS, gfxGamePad);
 
         selectGroup(SoundsGroup.DRUMS);
 
-        Player player = new Player(drums, samples, notes, this);
+        Player player = new Player(drums, samples, notes, mcs, this);
         player.init();
 
     }
@@ -53,6 +55,10 @@ public class Game {
                 gfxGamePad.selectNotesGroup();
                 redrawPadsGroupGfx(notes);
                 break;
+            case MCS:
+                selectedPadGroup = mcs;
+                gfxGamePad.selectSampleGroup();
+                redrawPadsGroupGfx(mcs);
         }
 
 

@@ -15,14 +15,14 @@ public class Player implements KeyboardHandler {
     private Keyboard keyboard;
     private KeyboardEvent[] padKey = new KeyboardEvent[10];
     private KeyboardEvent[] padKeyReleased = new KeyboardEvent[10];
-    private KeyboardEvent[] groupKey = new KeyboardEvent[3];
-    private Pads drums, samples, notes;
+    private KeyboardEvent[] groupKey = new KeyboardEvent[4];
+    private Pads drums, samples, notes, mcs;
 
-    public Player(Pads drums, Pads samples, Pads notes, Game game) {
+    public Player(Pads drums, Pads samples, Pads notes, Pads mcs, Game game) {
 
         this.game = game;
         keyboard = new Keyboard(this);
-
+        this.mcs = mcs;
         this.drums = drums;
         this.samples = samples;
         this.notes = notes;
@@ -91,9 +91,14 @@ public class Player implements KeyboardHandler {
         groupKey[2].setKey(KeyboardEvent.KEY_3);
         groupKey[2].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
+        groupKey[3] = new KeyboardEvent();
+        groupKey[3].setKey(KeyboardEvent.KEY_4);
+        groupKey[3].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
         keyboard.addEventListener(groupKey[0]);
         keyboard.addEventListener(groupKey[1]);
         keyboard.addEventListener(groupKey[2]);
+        keyboard.addEventListener(groupKey[3]);
 
     }
 
@@ -111,6 +116,9 @@ public class Player implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_3:
                 game.selectGroup(SoundsGroup.NOTES);
+                break;
+            case KeyboardEvent.KEY_4:
+                game.selectGroup(SoundsGroup.MCS);
                 break;
 
             case KeyboardEvent.KEY_E:
