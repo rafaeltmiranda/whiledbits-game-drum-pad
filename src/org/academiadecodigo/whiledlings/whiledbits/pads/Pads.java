@@ -8,4 +8,6 @@ public abstract class Pads {
 
     public abstract boolean[] activePad();
 
+    public abstract void stopAllSongs();
+
 }

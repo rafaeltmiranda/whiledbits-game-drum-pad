@@ -144,12 +144,15 @@ public class Player implements KeyboardHandler {
         groupKey[3].setKey(KeyboardEvent.KEY_4);
         groupKey[3].setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
 
+        KeyboardEvent exit = new KeyboardEvent();
+        exit.setKey(KeyboardEvent.KEY_Q);
+        exit.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+
         keyboard.addEventListener(groupKey[0]);
         keyboard.addEventListener(groupKey[1]);
         keyboard.addEventListener(groupKey[2]);
         keyboard.addEventListener(groupKey[3]);
-
-
+        keyboard.addEventListener(exit);
 
     }
 
@@ -225,6 +228,13 @@ public class Player implements KeyboardHandler {
                 break;
             case KeyboardEvent.KEY_J:
                 game.getSelectedPadGroup().padPressed(9);
+                break;
+            case KeyboardEvent.KEY_Q:
+                drums.stopAllSongs();
+                samples.stopAllSongs();
+                menuInstance = true;
+                game.setInMenu();
+                game.startMenu();
                 break;
         }
 

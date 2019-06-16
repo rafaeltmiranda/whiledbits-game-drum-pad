@@ -108,6 +108,10 @@ public class Game {
         return inMenu;
     }
 
+    public void setInMenu(){
+        inMenu = true;
+    }
+
     public MenuHandler getMenuHandler() {
         return menuHandler;
     }

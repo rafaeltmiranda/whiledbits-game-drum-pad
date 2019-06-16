@@ -45,7 +45,7 @@ public class MenuHandler {
         if (!mainMenu){
             return;
         }
-        
+
         if (menuOpsSelected.ordinal() + 1 < MenuOptions.values().length) {
             menuOpsSelected = MenuOptions.values()[menuOpsSelected.ordinal() + 1];
             gfxMenu.selectOps(menuOpsSelected.ordinal());
@@ -55,6 +55,11 @@ public class MenuHandler {
     }
 
     public void keySpace() {
+
+        if (!mainMenu){
+            return;
+        }
+
         if (menuOpsSelected.ordinal() == 0) {
             System.out.println("play");
             mainMenu = false;
@@ -65,16 +70,16 @@ public class MenuHandler {
 
         if (menuOpsSelected.ordinal() == 1) {
             System.out.println("Inst");
-            menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallInst.png");
             mainMenu = false;
+            menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallInst.png");
             menuOptionImg.draw();
             return;
         }
 
         if (menuOpsSelected.ordinal() == 2) {
             System.out.println("kcs");
-            menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallKcs.png");
             mainMenu = false;
+            menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallKcs.png");
             menuOptionImg.draw();
             return;
         }

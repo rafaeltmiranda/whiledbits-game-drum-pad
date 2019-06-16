@@ -50,4 +50,11 @@ public class PadsSample extends Pads{
     public boolean[] activePad() {
         return playing;
     }
+
+    @Override
+    public void stopAllSongs() {
+        for (int i = 0; i < sound.length; i++){
+            sound[i].stop();
+        }
+    }
 }
