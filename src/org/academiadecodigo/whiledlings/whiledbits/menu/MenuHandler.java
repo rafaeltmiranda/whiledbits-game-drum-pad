@@ -102,7 +102,7 @@ public class MenuHandler {
         if (menuOpsSelected.ordinal() == 1) {
             mainMenu = false;
             menuOption = true;
-            menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallInst.png");
+            menuOptionImg = new Picture(0, 0, Game.resourcesPathImages + "menu/menuWallInst.png");
             menuOptionImg.draw();
             return;
         }
@@ -110,7 +110,7 @@ public class MenuHandler {
         if (menuOpsSelected.ordinal() == 2) {
             mainMenu = false;
             menuOption = true;
-            menuOptionImg = new Picture(0, 0, game.resourcesPathImages + "/menu/menuWallKcs.png");
+            menuOptionImg = new Picture(0, 0, Game.resourcesPathImages + "menu/menuWallKcs.png");
             menuOptionImg.draw();
             return;
         }

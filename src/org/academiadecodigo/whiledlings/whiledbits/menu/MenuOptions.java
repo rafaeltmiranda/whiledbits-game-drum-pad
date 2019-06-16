@@ -1,9 +1,11 @@
 package org.academiadecodigo.whiledlings.whiledbits.menu;
 
+import org.academiadecodigo.whiledlings.whiledbits.Game;
+
 public enum MenuOptions {
-    PLAY("./resources/images/menu/menuPlay"),
-    INST("./resources/images/menu/menuInst"),
-    KCS("./resources/images/menu/menuKcs");
+    PLAY(Game.resourcesPathImages + "menu/menuPlay"),
+    INST(Game.resourcesPathImages + "menu/menuInst"),
+    KCS(Game.resourcesPathImages + "menu/menuKcs");
 
     private String path;
     private String pathSelected;

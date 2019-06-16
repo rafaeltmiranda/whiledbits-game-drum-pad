@@ -1,11 +1,12 @@
 package org.academiadecodigo.whiledlings.whiledbits.gfx;
 
 import org.academiadecodigo.simplegraphics.pictures.Picture;
+import org.academiadecodigo.whiledlings.whiledbits.Game;
 import org.academiadecodigo.whiledlings.whiledbits.menu.MenuOptions;
 
 public class GfxMenu {
 
-    private String pathImages = "./resources/images/menu/";
+    private String pathImages = Game.resourcesPathImages + "menu/";
     private Picture menuBackground;
     private Picture[] menuOps = new Picture[3];
     private Picture[] menuSelected = new Picture[3];
@@ -33,8 +34,6 @@ public class GfxMenu {
         menuSelected[2] = new Picture(977.5, 595.6, MenuOptions.KCS.getPathSelected());
         menuOps[2].draw();
 
-        menuWalls[0] = new Picture(0,0,pathImages + "menuWallInst.png");
-        menuWalls[1] = new Picture(0,0, pathImages + "menuWallKcs.png");
 
     }
 
