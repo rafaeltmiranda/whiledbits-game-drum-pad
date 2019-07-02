@@ -14,9 +14,9 @@ Key Cheat Sheet with keys to make some music and the credits
 Play button  
 
 // Three visible groups of sounds  
-Drums  
-Samples  
-Notes  
+Drums (key 1)  
+Samples (key 2)  
+Notes (key 3)  
 
 // One hidden feature  
 The fourth group (key 4) was dedicated to our Master Coders and contains some records of them.
