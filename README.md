@@ -33,12 +33,12 @@ One hidden feature
 
 # Screenshots
 
-![Menu Screen](https://imgur.com/Lyf6drA)
+![Menu Screen](https://i.imgur.com/Lyf6drA.png)
 
-![Pad_Screen](https://imgur.com/ZU7iVr2)
+![Pad_Screen](https://imgur.com/ZU7iVr2.png)
 
-![Pad Screen MCs](https://imgur.com/5quSMzE)
+![Pad Screen MCs](https://imgur.com/5quSMzE.png)
 
-![Instructions](https://imgur.com/z2u3TlF)
+![Instructions](https://imgur.com/z2u3TlF.png)
 
-![KCS Screen](https://imgur.com/farCvFm)
+![KCS Screen](https://imgur.com/farCvFm.png)
