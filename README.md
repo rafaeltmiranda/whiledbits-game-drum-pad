@@ -8,20 +8,18 @@ We've provided the build.xml file so you can build the .Jar with "ant" on termin
 
 ## Features
 
-On menu you have:  
-  Instructions  
-  Key Cheat Sheet with keys to make some music and the credits  
-  Play button  
+// Menu Options  
+Instructions  
+Key Cheat Sheet with keys to make some music and the credits  
+Play button  
 
-Application controlled by the keyboard
+// Three visible groups of sounds  
+Drums  
+Samples  
+Notes  
 
-Three visible groups of sounds:  
-  Drums  
-  Samples  
-  Notes  
-
-One hidden feature:  
-  The fourth group (key 4) was dedicated to our Master Coders and contains some records of them.
+// One hidden feature  
+The fourth group (key 4) was dedicated to our Master Coders and contains some records of them.
   
 ### Keys to play on pads
   E R T Y U  
