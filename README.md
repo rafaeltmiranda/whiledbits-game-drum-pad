@@ -1,7 +1,7 @@
 # WhiledBits
 This was developed as the first group project at Academia de Codigo's Bootcamp#29, at the end of the 5th week.
 
-We've made an application that allow the to produce music with some sounds and samples. All the sounds were made by us, with 8-bit effect.
+We've made an application that allows everyone to produce music with some sounds and samples. All the sounds were made by us, with 8-bit effect.
 
 ## Deployment
 We've provided the build.xml file so you can build the .Jar with "ant" on terminal.
